@@ -2,6 +2,7 @@ import { BarChart3, Blocks, Cog, List, Plug, Sprout, X } from 'lucide-react';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
+import { OverdueInvoiceAlert } from '@/components/patterns/OverdueInvoiceAlert';
 import {
     Sidebar,
     SidebarContent,
@@ -19,7 +20,6 @@ import { useApiGetOverdueInvoices, useCurrentPlan } from '@/hooks/usePlan';
 import { apiPatchUser } from '@/hooks/useUser';
 import { useStore } from '@/store';
 import { EnvironmentDropdown } from './EnvironmentDropdown';
-import OverdueInvoiceCard from './OverdueInvoiceCard';
 import { ProfileDropdown } from './ProfileDropdown';
 import UsageLimitAlert from './UsageLimitAlert';
 
@@ -112,7 +112,7 @@ export const AppSidebar: React.FC = () => {
             <SidebarFooter className="p-0">
                 {showOverdueCard && (
                     <div className="px-2.5 mb-4">
-                        <OverdueInvoiceCard portalUrl={overdue?.data.portalUrl ?? null} />
+                        <OverdueInvoiceAlert portalUrl={overdue?.data.portalUrl ?? null} />
                     </div>
                 )}
                 {showUsageAlert && (

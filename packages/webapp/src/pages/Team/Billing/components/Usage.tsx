@@ -1,9 +1,10 @@
-import { Info, TriangleAlert } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { useMemo } from 'react';
 
 import { Alert, AlertDescription, AlertTitle } from '@nangohq/design-system';
 
 import { CriticalErrorAlert } from '@/components/patterns/CriticalErrorAlert';
+import { OverdueInvoiceAlert } from '@/components/patterns/OverdueInvoiceAlert';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { useApiGetBillingUsage, useApiGetOverdueInvoices, useCurrentPlan } from '@/hooks/usePlan';
 import { useStore } from '@/store';
@@ -48,23 +49,7 @@ export const Usage: React.FC = () => {
 
     // Overdue-payment warning. Rendered independently of the usage query so a
     // usage-fetch failure can't hide it — customers can still reach the portal.
-    const overdueBanner = overdue?.data.hasOverdue && (
-        <Alert variant="warning">
-            <TriangleAlert />
-            <AlertTitle>Invoice(s) overdue</AlertTitle>
-            <AlertDescription>
-                Edit payment method to avoid interruption.
-                {overdue.data.portalUrl && (
-                    <>
-                        {' '}
-                        <StyledLink icon to={overdue.data.portalUrl} type="external" variant="warning">
-                            Edit payment method
-                        </StyledLink>
-                    </>
-                )}
-            </AlertDescription>
-        </Alert>
-    );
+    const overdueBanner = overdue?.data.hasOverdue && <OverdueInvoiceAlert portalUrl={overdue.data.portalUrl} />;
 
     if (usageError) {
         return (
