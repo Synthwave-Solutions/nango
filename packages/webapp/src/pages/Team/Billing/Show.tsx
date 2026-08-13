@@ -10,6 +10,7 @@ import { track } from '@/utils/analytics';
 import DashboardLayout from '../../../layout/DashboardLayout';
 import { Payment } from './components/Payment';
 import { Plans } from './components/Plans';
+import { Summary } from './components/Summary';
 import { Usage } from './components/Usage';
 
 export const TeamBilling: React.FC = () => {
@@ -43,6 +44,10 @@ export const TeamBilling: React.FC = () => {
             {/* max-w: the old 1280 cap plus the 228px (184px side panel + 44px gap) the tabbed
                 NavigationList side panel used to take up, now that the sections stack instead */}
             <div className="flex flex-col gap-8 max-w-[1508px]">
+                <div id="summary">
+                    <Summary />
+                </div>
+                <Separator />
                 <div id="usage">
                     <Usage />
                 </div>
