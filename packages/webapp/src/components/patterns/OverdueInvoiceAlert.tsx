@@ -10,6 +10,9 @@ interface OverdueInvoiceAlertProps {
  *
  * Hand-rolled rather than built on `ui/Alert`, whose look has drifted from the design
  * system's — fold both into the DS alert once it lands there.
+ *
+ * Deliberately not dismissible, unlike the alert in the design: an unpaid invoice stays
+ * true until it's paid, so the warning should persist rather than be closable.
  */
 export function OverdueInvoiceAlert({ portalUrl }: OverdueInvoiceAlertProps) {
     return (

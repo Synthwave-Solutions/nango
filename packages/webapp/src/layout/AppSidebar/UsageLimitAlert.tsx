@@ -40,15 +40,14 @@ export default function UsageLimitAlert() {
     const { Icon, title, body, container, accent } = VARIANTS[state];
 
     return (
-        <div className={cn('flex gap-2 rounded border-[0.5px] px-2 py-2', container)}>
-            <Icon className={cn('size-4 shrink-0', accent)} />
-            <div className="flex flex-col gap-0.5">
-                <p className={cn('text-body-small-regular', accent)}>{title}</p>
-                <p className="text-body-small-regular text-text-default">{body}</p>
-                <Link
-                    to="/team/billing#usage"
-                    className={cn('inline-flex w-fit items-center gap-1 mt-1 rounded-[2px] underline text-body-small-regular focus-default', accent)}
-                >
+        <div className={cn('flex items-start gap-2 rounded border-[0.5px] px-2 py-2', container)}>
+            <Icon className={cn('mt-0.5 size-4 shrink-0', accent)} />
+            <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-0.5">
+                    <p className={cn('type-text-regular-sm', accent)}>{title}</p>
+                    <p className="type-text-regular-xs text-text-default">{body}</p>
+                </div>
+                <Link to="/team/billing#usage" className={cn('type-text-regular-sm focus-default inline-flex w-fit items-center gap-1 rounded-[2px]', accent)}>
                     View usage
                     <ExternalLink className="size-3" />
                 </Link>
