@@ -1,4 +1,4 @@
-import { ExternalLink, TriangleAlert } from 'lucide-react';
+import { CircleAlert, ExternalLink } from 'lucide-react';
 
 interface OverdueInvoiceAlertProps {
     portalUrl: string | null;
@@ -8,22 +8,25 @@ interface OverdueInvoiceAlertProps {
  * Warning shown when the org has overdue invoices, linking out to the Orb billing portal
  * to edit the payment method. Rendered in the sidebar and above the Billing & usage page.
  *
- * Hand-rolled to match `UsageLimitAlert` rather than built on `ui/Alert`, whose look has
- * drifted from the design system's — fold both into the DS alert once it lands there.
+ * Hand-rolled rather than built on `ui/Alert`, whose look has drifted from the design
+ * system's — fold both into the DS alert once it lands there.
  */
 export function OverdueInvoiceAlert({ portalUrl }: OverdueInvoiceAlertProps) {
     return (
-        <div className="flex gap-2 rounded border-[0.5px] px-2 py-2 bg-status-warning-bg border-status-warning-border">
-            <TriangleAlert className="size-4 shrink-0 text-status-warning-text" />
-            <div className="flex flex-col gap-0.5">
-                <p className="text-body-small-regular text-status-warning-text">Invoice(s) overdue</p>
-                <p className="text-body-small-regular text-text-default">Edit payment method to avoid interruption.</p>
+        <div className="flex items-start gap-2 rounded-ds-sm border-ds-hairline border-status-danger-border bg-status-danger-bg px-2 py-2">
+            {/* Nudged down to sit on the title's baseline rather than the top of its line box. */}
+            <CircleAlert className="mt-0.5 size-4 shrink-0 text-status-danger-icon" />
+            <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-0.5">
+                    <p className="type-text-regular-sm text-status-danger-text">Invoice(s) overdue</p>
+                    <p className="type-text-regular-xs text-text-default">Edit payment method to avoid interruption.</p>
+                </div>
                 {portalUrl && (
                     <a
                         href={portalUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex w-fit items-center gap-1 mt-1 rounded-[2px] underline text-body-small-regular focus-default text-status-warning-text"
+                        className="type-text-regular-sm focus-default inline-flex w-fit items-center gap-1 rounded-ds-xs text-status-danger-text"
                     >
                         Edit payment method
                         <ExternalLink className="size-3" />
