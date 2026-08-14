@@ -6,10 +6,9 @@ import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import z from 'zod';
 
-import { Button, InputGroup, InputGroupInput } from '@nangohq/design-system';
+import { Alert, AlertActions, AlertButton, AlertDescription, AlertTitle, Button, InputGroup, InputGroupInput } from '@nangohq/design-system';
 
 import GoogleButton from '@/components/patterns/GoogleButton';
-import { Alert, AlertActions, AlertButton, AlertDescription, AlertTitle } from '@/components/ui/Alert';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/Form';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { useResendVerificationEmail, useSigninAPI } from '@/hooks/useAuth';
@@ -137,7 +136,7 @@ export const Signin: React.FC = () => {
                 </div>
 
                 {errorMessage && !showResendEmail && (
-                    <Alert variant="error">
+                    <Alert variant="danger">
                         <CircleX />
                         <AlertDescription>{errorMessage}</AlertDescription>
                     </Alert>
@@ -149,7 +148,7 @@ export const Signin: React.FC = () => {
                         <AlertTitle>Please verify your email</AlertTitle>
                         <AlertDescription>We&apos;ve sent a verification email to {form.getValues('email')}.</AlertDescription>
                         <AlertActions>
-                            <AlertButton onClick={resendVerificationEmail} variant="warning" disabled={isResendingEmail}>
+                            <AlertButton onClick={resendVerificationEmail} disabled={isResendingEmail}>
                                 Resend
                                 {isResendingEmail ? <Loader2 className="animate-spin" /> : <ExternalLink />}
                             </AlertButton>

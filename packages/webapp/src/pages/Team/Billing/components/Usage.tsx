@@ -1,8 +1,9 @@
 import { Info } from 'lucide-react';
 import { useMemo } from 'react';
 
+import { Alert, AlertDescription, AlertTitle } from '@nangohq/design-system';
+
 import { CriticalErrorAlert } from '@/components/patterns/CriticalErrorAlert';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/Alert';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { useApiGetBillingUsage, useCurrentPlan } from '@/hooks/usePlan';
 import { useStore } from '@/store';

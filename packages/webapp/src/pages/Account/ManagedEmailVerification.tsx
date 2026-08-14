@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, InputGroup, InputGroupInput } from '@nangohq/design-system';
+import { Alert, AlertDescription, Button, InputGroup, InputGroupInput } from '@nangohq/design-system';
 
-import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { useManagedEmailVerification, useManagedEmailVerificationAPI } from '@/hooks/useAuth';
 import DefaultLayout from '@/layout/DefaultLayout';
@@ -64,7 +63,7 @@ export const ManagedEmailVerification: React.FC = () => {
                 <h2 className="text-title-group text-text-strong">Verify your email</h2>
 
                 {serverErrorMessage && (
-                    <Alert variant="error">
+                    <Alert variant="danger">
                         <CircleX />
                         <AlertDescription>{serverErrorMessage}</AlertDescription>
                     </Alert>

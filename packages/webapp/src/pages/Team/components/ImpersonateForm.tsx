@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 
-import { Button, FieldLabel, Input } from '@nangohq/design-system';
+import { Alert, AlertDescription, Button, FieldLabel, Input } from '@nangohq/design-system';
 
-import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../../../components/ui/Form';
 import { apiAdminImpersonate } from '../../../hooks/useAdmin';

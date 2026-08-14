@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { permissions } from '@nangohq/authz';
 import {
+    Alert,
+    AlertDescription,
     Button,
     Card,
     CardFooter,
@@ -20,7 +22,6 @@ import {
 } from '@nangohq/design-system';
 
 import { PermissionGate } from '@/components/patterns/PermissionGate.js';
-import { Alert, AlertDescription } from '@/components/ui/Alert.js';
 import { StyledLink } from '@/components/ui/StyledLink.js';
 import { environmentQueryKey } from '@/hooks/useEnvironment';
 import { usePermissions } from '@/hooks/usePermissions.js';
@@ -481,7 +482,7 @@ const PlanChangeDialog: React.FC<{
                             )}
                         </div>
                         {error && (
-                            <Alert variant="error">
+                            <Alert variant="danger">
                                 <AlertDescription>{error}</AlertDescription>
                             </Alert>
                         )}

@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { permissions } from '@nangohq/authz';
+import { Alert, AlertDescription } from '@nangohq/design-system';
 
 import { EditableInput } from '@/components/patterns/EditableInput';
-import { Alert, AlertDescription } from '@/components/ui/Alert';
 import { StyledLink } from '@/components/ui/StyledLink';
 import { usePermissions } from '@/hooks/usePermissions';
 import { APIError } from '@/utils/api';

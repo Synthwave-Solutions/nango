@@ -1,7 +1,8 @@
 import { CircleX } from 'lucide-react';
 import { useMemo } from 'react';
 
-import { Alert, AlertDescription } from '../ui/Alert';
+import { Alert, AlertDescription } from '@nangohq/design-system';
+
 import { StyledLink } from '../ui/StyledLink';
 
 /**
@@ -14,7 +15,7 @@ export const CriticalErrorAlert: React.FC<{ message: string }> = ({ message }) =
     }, [message]);
 
     return (
-        <Alert variant="error" className="w-full">
+        <Alert variant="danger">
             <CircleX />
             <AlertDescription>
                 {finalMessage}. Please{' '}
