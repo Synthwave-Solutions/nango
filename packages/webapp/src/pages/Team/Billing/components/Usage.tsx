@@ -49,7 +49,7 @@ export const Usage: React.FC = () => {
 
     // Overdue-payment warning. Rendered independently of the usage query so a
     // usage-fetch failure can't hide it — customers can still reach the portal.
-    const overdueBanner = overdue?.data.hasOverdue && <OverdueInvoiceAlert portalUrl={overdue.data.portalUrl} />;
+    const overdueBanner = overdue?.data.hasOverdue && <OverdueInvoiceAlert portalUrl={overdue.data.portalUrl} size="wide" />;
 
     if (usageError) {
         return (
