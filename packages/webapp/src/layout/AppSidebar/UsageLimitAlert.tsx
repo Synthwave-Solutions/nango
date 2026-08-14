@@ -1,4 +1,4 @@
-import { CircleAlert, ExternalLink, TriangleAlert } from 'lucide-react';
+import { ArrowUpRight, CircleAlert, TriangleAlert } from 'lucide-react';
 
 import { Alert, AlertActions, AlertDescription, AlertTitle } from '@nangohq/design-system';
 
@@ -45,7 +45,7 @@ export default function UsageLimitAlert() {
             <AlertDescription>{body}</AlertDescription>
             <AlertActions>
                 <AlertButtonLink to="/team/billing#usage">
-                    View usage <ExternalLink />
+                    View usage <ArrowUpRight />
                 </AlertButtonLink>
             </AlertActions>
         </Alert>
