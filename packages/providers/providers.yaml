@@ -26399,3 +26399,20 @@ zuora:
             example: rest.test
             doc_section: '#step-1-finding-your-zuora-subdomain'
             order: 1
+
+# ============================================================
+# Synthwave custom providers (SynthPulse fork; upstream section above
+# is never edited so a version bump can rebase cleanly)
+# ============================================================
+productive:
+    display_name: Productive.io
+    categories:
+        - productivity
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://api.productive.io
+        headers:
+            x-auth-token: ${apiKey}
+            x-organization-id: ${connectionConfig.organizationId}
+            content-type: application/vnd.api+json
+    docs: https://developer.productive.io
